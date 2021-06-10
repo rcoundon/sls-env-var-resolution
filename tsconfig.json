@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "plugins": [{
+      "transform": "ts-optchain/transform"
+    }],
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "outDir": "./.build",
+    "removeComments": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "skipLibCheck": true,
+    "declarationMap": true,
+    "declaration": true,
+    "preserveConstEnums": true,
+    "baseUrl": "src",
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": [ "main/*"]
+    }
+  },
+  "exclude": ["./jest.config.js", "./node_modules/**/*", "./build/**/*", "types"],
+  "include": ["lib","src"]
+}
