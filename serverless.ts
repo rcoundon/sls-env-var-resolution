@@ -25,6 +25,7 @@ const serverlessConfiguration: AWS = {
   functions: {
     MyTestLambda: {
       handler: '.build/lambda.envHandler',
+      name: 'MyTestLambda',
       events: [{
         httpApi: {
           path: '/hello',
@@ -33,11 +34,23 @@ const serverlessConfiguration: AWS = {
       }],
       environment: {
         GENERAL_VAR: 'general',
+      }
+    },
+    MyTestLambda2: {
+      handler: '.build/lambda.envHandler2',
+      events: [{
+        httpApi: {
+          path: '/hello2',
+          method: 'GET'
+        }
+      }],
+      environment: {
+        GENERAL_VAR: 'general',
         ARN_VAR_REF: {
-          'Ref': 'MyTestLambda'
+          'Ref': 'MyTestLambdaLambdaFunction'
         },
         ARN_VAR_GETATT: {
-          'Fn::GetAtt': ['MyTestLambda', 'arn']
+          'Fn::GetAtt': ['MyTestLambdaLambdaFunction', 'Arn']
         }
       }
     }
